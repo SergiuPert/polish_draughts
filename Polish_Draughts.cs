@@ -1,30 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Polish_Draughts
 {
-	class Game
+	class Program
 	{
-		Board board;
 		static void Main(string[] args)
-        {
-		}
-		public void Start()
 		{
-		}
-		public void Round(string player)
-		{
-		}
-		public bool MovePawn(int x1, int y1, int x2, int y2)
-		{
-			return true;
-		}
-		public int CheckForWin()
-		{
-			return 0;
+			Game game=new Game();
+			for(;;)
+			{
+				int endGame = 0;
+				game.presentation().Start();
+				game.;
+				for(int player = 1;endGame == 0; player=(player+1)%2) endGame = game.Round(player).CheckForWin();
+				game.AnnounceResult(endGame);
+				Console.WriteLine("Game Over. Do you wish to quit?");
+				if (Console.ReadLine() == "yes") Environment.Exit(0);
+			}
 		}
 	}
 }

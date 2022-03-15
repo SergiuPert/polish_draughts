@@ -5,6 +5,17 @@ namespace Polish_Draughts
 	class Game
 	{
 		private Board board;
+		public Game presentation()
+		{
+			Console.WriteLine("Welcome to Polish Draughts");
+			Console.WriteLine("This is a two players game, black and white, hat take turns moving their pieces");
+			Console.WriteLine("Pieces may be moved one square diagonaly if the destination square is free,");
+			Console.WriteLine("or jumped over another piece diagonaly if the square behind is free");
+			Console.WriteLine("If you jump over your oponet's piece, it is captured - removed from the game.");
+			Console.WriteLine("Plyers alternate and white starts");
+			Console.WriteLine("The aim is to capture more oponent pieces than you loose and move your surviving pieces to the othr side of the board");
+			return this;
+		}
 		public void Start()
 		{
 			int n=10;
@@ -17,7 +28,7 @@ namespace Polish_Draughts
 			}
 			board = new Board(n);
 		}
-		public void Round(int player)
+		public Game Round(int player)
 		{
 			string c = (player == 1) ? "White" : "Black";
 			bool b = false;
@@ -66,6 +77,7 @@ namespace Polish_Draughts
 					break;
 				}
 			}
+			return this;
 		}
 		public void MovePawn(int x1, int y1, int x2, int y2)
 		{
@@ -98,6 +110,15 @@ namespace Polish_Draughts
 			if (countWhite != 0) return 1;
 			if (!canMove) return -1;
 			return 0;
+		}
+		public void AnnounceResult(int gameCode)
+		{
+			switch (gameCode)
+			{
+				case -1: { Console.WriteLine("Game is a draw. Better luck next time."); break; }
+				case 1: { Console.WriteLine("Congratulation player 1, you won."); break; }
+				case 2: { Console.WriteLine("Congratulation player 2, you won."); break; }
+			}
 		}
 	}
 }

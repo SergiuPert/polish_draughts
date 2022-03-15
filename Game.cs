@@ -22,7 +22,7 @@ namespace Polish_Draughts
 			string c = (player == 1) ? "White" : "Black";
 			bool b = false;
 			string input;
-			int x=0, y=0;
+			int col=0, row=0;
 			for(;;)
 			{
 				board.Print();
@@ -32,36 +32,36 @@ namespace Polish_Draughts
 					Console.WriteLine("Select pawn to move (Letter-Number format, please)");
 					input = Console.ReadLine();
 					if (input == "quit") Environment.Exit(0);
-					x = input[0] - 'A';
-					if (x < 0 || x >= board.size) continue;
-					if (!int.TryParse(input.Substring(1), out y)) continue;
-					if (board.field[x, y] != null)
+					col = input[0] - 'A';
+					if (col < 0 || col >= board.size) continue;
+					if (!int.TryParse(input.Substring(1), out row)) continue;
+					if (board.field[col, row] != null)
 					{
-						if (board.field[x, y].color[0] == c[0]) b = true;
+						if (board.field[col, row].color[0] == c[0]) b = true;
 						else Console.WriteLine("That's not your pawn! PAY ATTENTION! Again!");
 					}
 					else Console.WriteLine("You don't have a pawn there! Again!");
 				}
-				Pawn p = board.field[x, y];
+				Pawn p = board.field[col, row];
 				b = false;
 				while (!b)
 				{
 					Console.WriteLine("Enter destination field (Letter-Number format, please)");
 					input = Console.ReadLine();
 					if (input == "quit") Environment.Exit(0);
-					x = input[0] - 'A';
-					if (x < 0 || x >= board.size) continue;
-					if (!int.TryParse(input.Substring(1), out y)) continue;
-					if (board.field[x, y]!=null)
+					col = input[0] - 'A';
+					if (col < 0 || col >= board.size) continue;
+					if (!int.TryParse(input.Substring(1), out row)) continue;
+					if (board.field[col, row]!=null)
 					{
 						Console.WriteLine("That field is ocupied! PAY ATTENTION! Again!");
 						continue;
 					}
 				}
-				if (!p.CanMoveTo(x, y, ref board)) Console.WriteLine("Invalid move. Check the rules and try again");
+				if (!p.CanMoveTo( row,col, ref board)) Console.WriteLine("Invalid move. Check the rules and try again");
 				else
 				{
-					MovePawn(p.Coordinates[0], p.Coordinates[1], x, y);
+					MovePawn(p.Coordinates[0], p.Coordinates[1], col, row);
 					Console.Clear();
 					break;
 				}
@@ -72,6 +72,16 @@ namespace Polish_Draughts
 			Pawn p = board.field[x1, y1];
 			board.field[x1, y1] = null;
 			board.field[x2, y2] = p;
+			if (x2 - x1 == 2)
+			{
+				if (y2 - y1 == 2) board.RemovePawn(x1 + 1, y1 + 1);
+				else board.RemovePawn(x1 + 1, y1 - 1);
+			}
+			if (x1 - x2 == 2)
+			{
+				if (y2 - y1 == 2) board.RemovePawn(x1 - 1, y1 + 1);
+				else board.RemovePawn(x1 - 1, y1 - 1);
+			}
 		}
 		public int CheckForWin()
 		{

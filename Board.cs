@@ -18,9 +18,11 @@ namespace Polish_Draughts
 		}
 		public bool RemovePawn(int x,int y)
 		{
+			return true;
 		}
 		public bool MovePawn(int x1,int y1,int x2,int y2)
 		{
+			return true;
 		}
 	}
 }

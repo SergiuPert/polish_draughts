@@ -1,0 +1,8 @@
+D:\Code\Projects\OOP Week Pair 1\polish-draughts-csharp-SergiuPert\bin\Debug\Polish draughts.exe.config
+D:\Code\Projects\OOP Week Pair 1\polish-draughts-csharp-SergiuPert\bin\Debug\Polish draughts.exe
+D:\Code\Projects\OOP Week Pair 1\polish-draughts-csharp-SergiuPert\bin\Debug\Polish draughts.pdb
+D:\Code\Projects\OOP Week Pair 1\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.csproj.AssemblyReference.cache
+D:\Code\Projects\OOP Week Pair 1\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.csproj.SuggestedBindingRedirects.cache
+D:\Code\Projects\OOP Week Pair 1\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.csproj.CoreCompileInputs.cache
+D:\Code\Projects\OOP Week Pair 1\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.exe
+D:\Code\Projects\OOP Week Pair 1\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.pdb

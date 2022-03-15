@@ -10,7 +10,7 @@ namespace Polish_Draughts
 	{
 		Board board;
 		static void Main(string[] args)
-		{
+        {
 		}
 		public void Start()
 		{
@@ -20,9 +20,11 @@ namespace Polish_Draughts
 		}
 		public bool MovePawn(int x1, int y1, int x2, int y2)
 		{
+			return true;
 		}
 		public int CheckForWin()
 		{
+			return 0;
 		}
 	}
 }

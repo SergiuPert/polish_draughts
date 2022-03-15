@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Polish_Draughts
 {
-	class Pawn
+	public class Pawn
 	{
 		public string color { get; set; }
 		public int[,] Coordinates { get; set; }
@@ -16,9 +16,11 @@ namespace Polish_Draughts
 		}
 		public bool CanMoveTo(int x,int y, Board board)
 		{
+			throw new NotImplementedException();
 		}
 		public bool CanMove(Board board)
 		{
+			throw new NotImplementedException();
 		}
 	}
 }

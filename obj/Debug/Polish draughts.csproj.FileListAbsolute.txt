@@ -1,0 +1,8 @@
+C:\Users\Alexandru.dumitru\Desktop\C#\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.csproj.AssemblyReference.cache
+C:\Users\Alexandru.dumitru\Desktop\C#\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.csproj.SuggestedBindingRedirects.cache
+C:\Users\Alexandru.dumitru\Desktop\C#\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.csproj.CoreCompileInputs.cache
+C:\Users\Alexandru.dumitru\Desktop\C#\polish-draughts-csharp-SergiuPert\bin\Debug\Polish draughts.exe.config
+C:\Users\Alexandru.dumitru\Desktop\C#\polish-draughts-csharp-SergiuPert\bin\Debug\Polish draughts.exe
+C:\Users\Alexandru.dumitru\Desktop\C#\polish-draughts-csharp-SergiuPert\bin\Debug\Polish draughts.pdb
+C:\Users\Alexandru.dumitru\Desktop\C#\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.exe
+C:\Users\Alexandru.dumitru\Desktop\C#\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.pdb

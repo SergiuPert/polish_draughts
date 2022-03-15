@@ -34,7 +34,7 @@ namespace Polish_Draughts
 					if (input == "quit") Environment.Exit(0);
 					x = input[0] - 'A';
 					if (x < 0 || x >= board.size) continue;
-					if (!int.TryParse(input[1..], out y)) continue;
+					if (!int.TryParse(input.Substring(1), out y)) continue;
 					if (board.field[x, y] != null)
 					{
 						if (board.field[x, y].color[0] == c[0]) b = true;
@@ -51,7 +51,7 @@ namespace Polish_Draughts
 					if (input == "quit") Environment.Exit(0);
 					x = input[0] - 'A';
 					if (x < 0 || x >= board.size) continue;
-					if (!int.TryParse(input[1..], out y)) continue;
+					if (!int.TryParse(input.Substring(1), out y)) continue;
 					if (board.field[x, y]!=null)
 					{
 						Console.WriteLine("That field is ocupied! PAY ATTENTION! Again!");

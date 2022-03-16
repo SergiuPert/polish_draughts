@@ -73,11 +73,11 @@ namespace Polish_Draughts
             return base.ToString();
         }
 
-        public bool RemovePawn(int x,int y)
+        public void RemovePawn(int x,int y)
 		{
 			throw new NotImplementedException();
 		}
-		public bool MovePawn(int x1,int y1,int x2,int y2)
+		public void MovePawn(int x1,int y1,int x2,int y2)
 		{
 			throw new NotImplementedException();
 		}

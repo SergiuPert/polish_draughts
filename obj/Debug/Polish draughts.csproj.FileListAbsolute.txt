@@ -6,3 +6,7 @@ D:\Code\Projects\OOP Week Pair 1\polish-draughts-csharp-SergiuPert\obj\Debug\Pol
 D:\Code\Projects\OOP Week Pair 1\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.csproj.CoreCompileInputs.cache
 D:\Code\Projects\OOP Week Pair 1\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.exe
 D:\Code\Projects\OOP Week Pair 1\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.pdb
+C:\Users\Radu\Documents\CodeCool\projects\projects.md3\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.csproj.AssemblyReference.cache
+C:\Users\Radu\Documents\CodeCool\projects\projects.md3\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.csproj.CoreCompileInputs.cache
+C:\Users\Radu\Documents\CodeCool\projects\projects.md3\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.exe
+C:\Users\Radu\Documents\CodeCool\projects\projects.md3\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.pdb

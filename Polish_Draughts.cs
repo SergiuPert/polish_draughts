@@ -11,7 +11,6 @@ namespace Polish_Draughts
 			{
 				int endGame = 0;
 				game.presentation().Start();
-				game.;
 				for(int player = 1;endGame == 0; player=(player+1)%2) endGame = game.Round(player).CheckForWin();
 				game.AnnounceResult(endGame);
 				Console.WriteLine("Game Over. Do you wish to quit?");

@@ -31,32 +31,36 @@ namespace Polish_Draughts
 		public Game Round(int player)
 		{
 			string c = (player == 1) ? "White" : "Black";
-			bool b;
+			bool flag;
 			string input;
 			int col=0, row=0;
-			for(;;)
+			board.PrintBoard();
+			for (;;)
 			{
-				b = false;
-				board.PrintBoard();
+				flag = false;
 				Console.WriteLine($"Player {player}, is your turn to move. Remember that your color is {c}");
-				while (!b)
+				while (!flag)
 				{
 					Console.WriteLine("Select pawn to move (Letter-Number format, please)");
 					input = Console.ReadLine();
 					if (input == "quit") Environment.Exit(0);
 					col = input[0] - 'A';
 					if (col < 0 || col >= board.size) continue;
+					
 					if (!int.TryParse(input.Substring(1), out row)) continue;
+					row--;
+					if (row < 0 || row >= board.size) continue;
 					if (board.field[row, col] != null)
 					{
-						if (board.field[row, col].color[0] == c[0]) b = true;
+						if (board.field[row, col].color[0] == c[0]) flag = board.field[row, col].CanMove(ref board);
 						else Console.WriteLine("That's not your pawn! PAY ATTENTION! Again!");
 					}
-					else Console.WriteLine("You don't have a pawn there! Again!");
+					else Console.WriteLine("You don't have a pawn there! Again!"); 
+
 				}
-				Pawn p = board.field[row, col];
-				b = false;
-				while (!b)
+				Pawn pawn = board.field[row, col];
+				flag = false;
+				while (!flag)
 				{
 					Console.WriteLine("Enter destination field (Letter-Number format, please)");
 					input = Console.ReadLine();
@@ -64,35 +68,42 @@ namespace Polish_Draughts
 					col = input[0] - 'A';
 					if (col < 0 || col >= board.size) continue;
 					if (!int.TryParse(input.Substring(1), out row)) continue;
+					row--;
+					if (row < 0 || row >= board.size) continue;
 					if (board.field[row, col] !=null)
 					{
 						Console.WriteLine("That field is ocupied! PAY ATTENTION! Again!");
 						continue;
 					}
-					b = true;
+					flag = true;
 				}
-				if (!p.CanMoveTo( row,col, ref board)) Console.WriteLine("Invalid move. Check the rules and try again");
+				if (!pawn.CanMoveTo(row, col, ref board)) {
+					Console.Clear();
+					board.PrintBoard();
+					Console.WriteLine("Invalid move. Check the rules and try again");
+				} 
 				else
 				{
-					MovePawn(p.Coordinates[0], p.Coordinates[1], row, col);
+					MovePawn(pawn.Coordinates[0], pawn.Coordinates[1], row, col);
 					Console.Clear();
+					//board.PrintBoard();
 					break;
 				}
 			}
 			return this;
 		}
-		public void MovePawn(int x1, int y1, int x2, int y2)
+		public void MovePawn(int colStart, int rowStart, int colMove, int rowMove)
 		{
-			board.MovePawn(x1, y1, x2, y2);
-			if (x2 - x1 == 2)
+			board.MovePawn(colStart, rowStart, colMove, rowMove);
+			if (colMove - colStart == 2)
 			{
-				if (y2 - y1 == 2) board.RemovePawn(x1 + 1, y1 + 1);
-				else board.RemovePawn(x1 + 1, y1 - 1);
+				if (rowMove - rowStart == 2) board.RemovePawn(colStart + 1, rowStart + 1);
+				else board.RemovePawn(colStart + 1, rowStart - 1);
 			}
-			if (x1 - x2 == 2)
+			if (colStart - colMove == 2)
 			{
-				if (y2 - y1 == 2) board.RemovePawn(x1 - 1, y1 + 1);
-				else board.RemovePawn(x1 - 1, y1 - 1);
+				if (rowMove - rowStart == 2) board.RemovePawn(colStart - 1, rowStart + 1);
+				else board.RemovePawn(colStart - 1, rowStart - 1);
 			}
 		}
 		public int CheckForWin()

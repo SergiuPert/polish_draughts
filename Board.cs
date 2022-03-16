@@ -55,21 +55,26 @@ namespace Polish_Draughts
 		}
 		public void PrintBoard()
 		{
-			string s = "   ";
-			for (int col = 0; col< size; col++) s += $" {(char)('A' + col)} ";
-			Console.WriteLine(s);
+			string tableStart = "   ";
+			for (int col = 0; col< size; col++) tableStart += $" {(char)('A' + col)}  ";
+			Console.WriteLine(tableStart);
+			string breakLine = "  -" + new string('-', 4 * size);
+			Console.WriteLine(breakLine);
 
 			for(int col = 0; col < size; col++)
 			{
-				Console.Write($"{col}");
-				if (col < 10) Console.Write("  ");
+				string rowStart = $"{col+1}|";
+
+				if (col < 9) rowStart = $" {col+1}|";
+				Console.Write(rowStart);
 				for (int row = 0; row < size; row++)
                 {
 					Console.Write(" ");
 					Console.Write((field[col, row]==null)? " ": field[col, row].color);
-					Console.Write(" ");
+					Console.Write(" |");
 				}
 				Console.WriteLine();
+                Console.WriteLine(breakLine);
 			}
 			
 

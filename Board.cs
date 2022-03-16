@@ -4,13 +4,17 @@ namespace Polish_Draughts
 {
 	public class Board
 	{
-		private int _size;
+		public int size { get; set; }
 		public Pawn[,] field { get; set; }
 		
-		public Board(int size)
+		public Board(int Size)
 		{
-			_size = size;
+			size = Size;
 			field = new Pawn[size, size];
+			//for (int col = 0; col < size; col++) {
+			//	field[col, col % 2] = new Pawn(col, col % 2, "W");
+			//	field[col, col % 2 + size - 2] = new Pawn(col, col % 2 + size - 2, "B");
+			//}
 			int whitePawns = size;
 			int blackPawns = size;
 			for (int i = 0; i < size; i++)
@@ -25,7 +29,7 @@ namespace Polish_Draughts
 				}
 			}
 
-			for (int i = size-1 ; i >=0 ; i--)
+			for (int i = size - 1; i >= 0; i--)
 			{
 				for (int j = 0; j < size; j++)
 				{
@@ -51,12 +55,19 @@ namespace Polish_Draughts
 		}
 		public void PrintBoard()
 		{
-			
-			for(int i = 0; i < _size; i++)
+			string s = "   ";
+			for (int col = 0; col< size; col++) s += $" {(char)('A' + col)} ";
+			Console.WriteLine(s);
+
+			for(int col = 0; col < size; col++)
 			{
-				for (int j = 0; j < _size; j++)
+				Console.Write($"{col}");
+				if (col < 10) Console.Write("  ");
+				for (int row = 0; row < size; row++)
                 {
-					Console.Write(string.IsNullOrEmpty(field[i, j].color)? " ": field[i, j].color);
+					Console.Write(" ");
+					Console.Write((field[col, row]==null)? " ": field[col, row].color);
+					Console.Write(" ");
 				}
 				Console.WriteLine();
 			}
@@ -69,13 +80,17 @@ namespace Polish_Draughts
             return base.ToString();
         }
 
-        public void RemovePawn(int x,int y)
+        public void RemovePawn(int col,int row)
 		{
-			throw new NotImplementedException();
+			field[col, row] = null;
 		}
-		public void MovePawn(int x1,int y1,int x2,int y2)
+		public void MovePawn(int col1,int row1,int col2,int row2)
 		{
-			throw new NotImplementedException();
+			Pawn pawn = field[col1, row1];
+			pawn.Coordinates[1] = row2;
+			pawn.Coordinates[0] = col2;
+			field[col1, row1] = null;
+			field[col2, row2] = pawn;
 		}
 	}
 }

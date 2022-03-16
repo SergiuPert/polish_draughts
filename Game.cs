@@ -31,12 +31,13 @@ namespace Polish_Draughts
 		public Game Round(int player)
 		{
 			string c = (player == 1) ? "White" : "Black";
-			bool b = false;
+			bool b;
 			string input;
 			int col=0, row=0;
 			for(;;)
 			{
-				board.Print();
+				b = false;
+				board.PrintBoard();
 				Console.WriteLine($"Player {player}, is your turn to move. Remember that your color is {c}");
 				while (!b)
 				{
@@ -46,14 +47,14 @@ namespace Polish_Draughts
 					col = input[0] - 'A';
 					if (col < 0 || col >= board.size) continue;
 					if (!int.TryParse(input.Substring(1), out row)) continue;
-					if (board.field[col, row] != null)
+					if (board.field[row, col] != null)
 					{
-						if (board.field[col, row].color[0] == c[0]) b = true;
+						if (board.field[row, col].color[0] == c[0]) b = true;
 						else Console.WriteLine("That's not your pawn! PAY ATTENTION! Again!");
 					}
 					else Console.WriteLine("You don't have a pawn there! Again!");
 				}
-				Pawn p = board.field[col, row];
+				Pawn p = board.field[row, col];
 				b = false;
 				while (!b)
 				{
@@ -63,16 +64,17 @@ namespace Polish_Draughts
 					col = input[0] - 'A';
 					if (col < 0 || col >= board.size) continue;
 					if (!int.TryParse(input.Substring(1), out row)) continue;
-					if (board.field[col, row]!=null)
+					if (board.field[row, col] !=null)
 					{
 						Console.WriteLine("That field is ocupied! PAY ATTENTION! Again!");
 						continue;
 					}
+					b = true;
 				}
 				if (!p.CanMoveTo( row,col, ref board)) Console.WriteLine("Invalid move. Check the rules and try again");
 				else
 				{
-					MovePawn(p.Coordinates[0], p.Coordinates[1], col, row);
+					MovePawn(p.Coordinates[0], p.Coordinates[1], row, col);
 					Console.Clear();
 					break;
 				}
@@ -81,9 +83,7 @@ namespace Polish_Draughts
 		}
 		public void MovePawn(int x1, int y1, int x2, int y2)
 		{
-			Pawn p = board.field[x1, y1];
-			board.field[x1, y1] = null;
-			board.field[x2, y2] = p;
+			board.MovePawn(x1, y1, x2, y2);
 			if (x2 - x1 == 2)
 			{
 				if (y2 - y1 == 2) board.RemovePawn(x1 + 1, y1 + 1);
@@ -106,8 +106,8 @@ namespace Polish_Draughts
 					if (p.color == "W") countWhite++; else countBlack++;
 					if (!canMove) canMove = p.CanMove(ref board);
 				}
-			if (countBlack != 0) return 2;
-			if (countWhite != 0) return 1;
+			if (countBlack != 0 && countWhite==0) return 2;
+			if (countWhite != 0 && countBlack==0) return 1;
 			if (!canMove) return -1;
 			return 0;
 		}

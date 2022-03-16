@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Polish_Draughts {
-	class Pawn {
+	public class Pawn {
 		public string color { get; set; }
 		public int[] Coordinates { get; set; }
 		public bool IsCrowned;
@@ -25,21 +25,21 @@ namespace Polish_Draughts {
                 if (Coordinates[0] - row == 2 && board.field[Coordinates[0] - 1, Coordinates[1] + 1]!=null)
                     if(board.field[Coordinates[0] - 1, Coordinates[1] + 1].color == oppositeMark)
                         return true;
-                else if (Coordinates[0] - row == - 2 && board.field[Coordinates[0] + 1, Coordinates[1] + 1] != null)
-                        if(board.field[Coordinates[0] + 1, Coordinates[1] + 1].color == oppositeMark)
-                            return true; 
+                if (Coordinates[0] - row == - 2 && board.field[Coordinates[0] + 1, Coordinates[1] + 1] != null)
+                    if(board.field[Coordinates[0] + 1, Coordinates[1] + 1].color == oppositeMark)
+                        return true; 
             }
             else if (Coordinates[1] > col ) {
                 if (Coordinates[0] - row == 2 && board.field[Coordinates[0] - 1, Coordinates[1] - 1] != null)
                     if (board.field[Coordinates[0] - 1, Coordinates[1] - 1].color == oppositeMark)
                         return true;
-                else if (Coordinates[0] - row == -2 && board.field[Coordinates[0] + 1, Coordinates[1] - 1] != null)
-                        if (board.field[Coordinates[0] + 1, Coordinates[1] - 1].color == oppositeMark)
-                            return true;
+                if (Coordinates[0] - row == -2 && board.field[Coordinates[0] + 1, Coordinates[1] - 1] != null)
+                    if (board.field[Coordinates[0] + 1, Coordinates[1] - 1].color == oppositeMark)
+                        return true;
             }
-            if (color == "B" && Coordinates[1] - col == -1) 
+            if (color == "B" && Coordinates[0] - row == 1) 
                 return true; 
-            else if (color == "W" && Coordinates[1] - col ==1)
+            else if (color == "W" && Coordinates[0] - row == -1)
                 return true;
             return false;
 		}

@@ -10,3 +10,6 @@ C:\Users\Radu\Documents\CodeCool\projects\projects.md3\polish-draughts-csharp-Se
 C:\Users\Radu\Documents\CodeCool\projects\projects.md3\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.csproj.CoreCompileInputs.cache
 C:\Users\Radu\Documents\CodeCool\projects\projects.md3\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.exe
 C:\Users\Radu\Documents\CodeCool\projects\projects.md3\polish-draughts-csharp-SergiuPert\obj\Debug\Polish draughts.pdb
+C:\Users\Radu\Documents\CodeCool\projects\projects.md3\polish-draughts-csharp-SergiuPert\bin\Debug\Polish draughts.exe.config
+C:\Users\Radu\Documents\CodeCool\projects\projects.md3\polish-draughts-csharp-SergiuPert\bin\Debug\Polish draughts.exe
+C:\Users\Radu\Documents\CodeCool\projects\projects.md3\polish-draughts-csharp-SergiuPert\bin\Debug\Polish draughts.pdb

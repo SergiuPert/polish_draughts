@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f4978f8b-9a46-485e-95e6-5770761da546": {
+      "ProjectGuid": "f4978f8b-9a46-485e-95e6-5770761da546",
+      "DisplayName": "Polish Draughts",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

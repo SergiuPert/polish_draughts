@@ -8,17 +8,27 @@ namespace Polish_Draughts
 		public int[] Coordinates { get; set; }
 		public bool IsCrowned;
         public int[,] board = {
-            { 1, 0, 0, 0, 0, 0, 0, 0, 2, 0},
-            { 0, 1, 0, 0, 0, 0, 0, 0, 0, 2},
-            { 1, 0, 0, 0, 0, 0, 0, 0, 2, 0},
-            { 0, 1, 0, 0, 0, 2, 0, 0, 0, 2},
-            { 1, 0, 0, 0, 1, 0, 0, 0, 2, 0},
-            { 0, 1, 0, 2, 0, 0, 0, 0, 0, 2},
-            { 1, 0, 0, 0, 0, 0, 0, 0, 2, 0},
-            { 0, 1, 0, 0, 0, 1, 0, 0, 0, 2},
-            { 1, 0, 0, 0, 1, 0, 0, 1, 2, 0},
-            { 0, 1, 0, 0, 0, 0, 1, 0, 0, 2},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         };
+
+
+
+
+
+
+
+
+
+
         public Pawn(int row, int col, string color)
         {
             this.color = color;
@@ -33,6 +43,9 @@ namespace Polish_Draughts
             //CanMoveto(6, 6, board); //false
             //CanMoveto(4, 5, board); //false
         }
+
+
+
         public bool CanMoveTo(int row,int col, int[,] board) // Board board
 		{
             int oppositeMark = 2;
@@ -60,10 +73,10 @@ namespace Polish_Draughts
                     return true;
                 }
             }
-            if (color == "Black" && Coordinates[1] - col == -1) 
+            if (color == "White" && Coordinates[1] - col == -1) 
             { 
                 return true; 
-            } else if (color == "White" && Coordinates[1] - col ==1) {
+            } else if (color == "Black" && Coordinates[1] - col ==1) {
                 return true;
             }
             return false;

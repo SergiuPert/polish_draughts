@@ -44,7 +44,8 @@ namespace Polish_Draughts
 					Console.WriteLine("Select pawn to move (Letter-Number format, please)");
 					input = Console.ReadLine();
 					if (input == "quit") Environment.Exit(0);
-					col = input[0] - 'A';
+					string colStr = new string(input[0], 1);
+					col = (colStr.ToUpper()[0]) - 'A';
 					if (col < 0 || col >= board.size) continue;
 					
 					if (!int.TryParse(input.Substring(1), out row)) continue;
@@ -65,7 +66,8 @@ namespace Polish_Draughts
 					Console.WriteLine("Enter destination field (Letter-Number format, please)");
 					input = Console.ReadLine();
 					if (input == "quit") Environment.Exit(0);
-					col = input[0] - 'A';
+					string colStr = new string(input[0], 1);
+					col = (colStr.ToUpper()[0]) - 'A';
 					if (col < 0 || col >= board.size) continue;
 					if (!int.TryParse(input.Substring(1), out row)) continue;
 					row--;

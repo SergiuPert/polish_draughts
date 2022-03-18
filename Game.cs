@@ -8,12 +8,12 @@ namespace Polish_Draughts
 		public Game presentation()
 		{
 			Console.WriteLine("Welcome to Polish Draughts");
-			Console.WriteLine("This is a two players game, black and white, hat take turns moving their pieces");
-			Console.WriteLine("Pieces may be moved one square diagonaly if the destination square is free,");
+			Console.WriteLine("This is a two players game, black and white, that take turns moving their pieces");
+			Console.WriteLine("Pieces may be moved forward one square diagonaly if the destination square is free,");
 			Console.WriteLine("or jumped over another piece diagonaly if the square behind is free");
-			Console.WriteLine("If you jump over your oponet's piece, it is captured - removed from the game.");
-			Console.WriteLine("Plyers alternate and white starts");
-			Console.WriteLine("The aim is to capture more oponent pieces than you loose and move your surviving pieces to the othr side of the board");
+			Console.WriteLine("If you jump over your oponent's piece, it is captured - removed from the game.");
+			Console.WriteLine("Players alternate and white starts");
+			Console.WriteLine("The aim is to capture more oponent pieces than you loose and move your surviving pieces to the other side of the board\n");
 			return this;
 		}
 		public void Start()
@@ -82,13 +82,12 @@ namespace Polish_Draughts
 				if (!pawn.CanMoveTo(row, col, ref board)) {
 					Console.Clear();
 					board.PrintBoard();
-					Console.WriteLine("Invalid move. Check the rules and try again");
+					Console.WriteLine("Invalid move. Check the rules and try again...");
 				} 
 				else
 				{
 					MovePawn(pawn.Coordinates[0], pawn.Coordinates[1], row, col);
 					Console.Clear();
-					//board.PrintBoard();
 					break;
 				}
 			}
